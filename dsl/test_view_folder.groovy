@@ -50,7 +50,7 @@ multibranchPipelineJob('TEST_FOLDER/5G18A-4.20012-QT') {
     configure {
         it / factory(class: "org.jenkinsci.plugins.workflow.multibranch.WorkflowBranchProjectFactory") << {
             // pipeline jobs will have their script path set to `pipelines/customPipeline.groovy`
-            scriptPath("wofkflows/jenkinsfile")
+            scriptPath("workflows/jenkinsfile")
         }
     }
  
