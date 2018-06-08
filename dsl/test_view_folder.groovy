@@ -26,7 +26,7 @@ folder('TEST_FOLDER') {
     }
 }
 
-job('TEST_FOLDER') {
+job('TEST_FOLDER/5G18A-4.8-QT') {
     logRotator(-1, 10)
     jdk('Java 6')
 }
