@@ -58,8 +58,10 @@ multibranchPipelineJob('TEST_FOLDER/5G18A-4.20012-QT') {
             'jenkins.plugins.git.traits.TagDiscoveryTrait' {}
         }
 
-        it / sources / data / 'jenkins.branch.BranchSource' / source / strategy / properties / a << {
-            'jenkins.branch.NoTriggerBranchProperty' {}
+        it / sources / data / 'jenkins.branch.BranchSource' / source / strategy / properties {
+              a(class: 'jenkins.branch.BranchProperty-array') {
+                  'jenkins.branch.NoTriggerBranchProperty'()
+                }
         }
     }
  
