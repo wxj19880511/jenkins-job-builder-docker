@@ -1,0 +1,14 @@
+- view-template:
+    name: '{name}-template-{seq}'
+    description: 'testing view templates feature'
+    view-type: list
+    regex: 'test-view-.*'
+
+- project:
+    name: 'test-view'
+    views:
+        - '{name}-template-{seq}'
+    seq:
+        - a
+        - b
+        - c

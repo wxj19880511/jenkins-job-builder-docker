@@ -1,0 +1,17 @@
+- project:
+    name: project-name
+    pyver:
+      - 26
+      - 27
+    jobs:
+      - '{name}-{pyver}'
+
+
+- job-template:
+    name: '{name}-{pyver}'
+    builders:
+        - shell: |
+            echo "{name}-{pyver}"
+
+        - shell: |
+            pwd
