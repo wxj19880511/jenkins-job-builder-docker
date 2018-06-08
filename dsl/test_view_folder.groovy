@@ -1,4 +1,4 @@
-folder('TEST_FOLDER/f1/f2') {
+folder('TEST_FOLDER') {
     
     description('Folder containing all QA jobs for project A')
 }
