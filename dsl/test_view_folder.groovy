@@ -31,6 +31,21 @@ job('TEST_FOLDER/5G18A-4.8-QT') {
     jdk('Java 6')
 }
 
+multibranchPipelineJob('TEST_FOLDER/5G18A-4.20012-QT') {
+    branchSources {
+        git {
+            remote('https://github.com/wxj19880511/jenkins-job-builder-docker.git')
+            credentialsId('github')
+            includes('*')
+        }
+    }
+    orphanedItemStrategy {
+        discardOldItems {
+            numToKeep(5)
+        }
+    }
+}
+
 folder('TEST_FOLDER/f1') {
     
     description('Folder containing all QA jobs for project A')
