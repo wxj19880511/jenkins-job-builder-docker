@@ -10,7 +10,7 @@ folder('TEST_FOLDER') {
 
             jobs {
                 name('5G18A-QT')
-                regex(/build-axe1.+/)
+                regex(/5G18A-.+-QT/)
             }
 
             columns {
@@ -24,6 +24,11 @@ folder('TEST_FOLDER') {
             }
         }
     }
+}
+
+job('TEST_FOLDER') {
+    logRotator(-1, 10)
+    jdk('Java 6')
 }
 
 folder('TEST_FOLDER/f1') {
