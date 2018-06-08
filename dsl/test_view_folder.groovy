@@ -46,6 +46,12 @@ multibranchPipelineJob('TEST_FOLDER/5G18A-4.20012-QT') {
             numToKeep(5)
         }
     }
+
+    factory {
+        workflowMultiBranchProjectFactory {
+        scriptPath('workflows/jenkinsfile')
+        }
+    }
 }
 
 folder('TEST_FOLDER/f1') {
