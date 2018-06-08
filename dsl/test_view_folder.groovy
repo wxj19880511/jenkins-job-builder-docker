@@ -32,6 +32,8 @@ job('TEST_FOLDER/5G18A-4.8-QT') {
 }
 
 multibranchPipelineJob('TEST_FOLDER/5G18A-4.20012-QT') {
+    description('QT jobs for stream 4.20012')
+
     branchSources {
         git {
             remote('https://github.com/wxj19880511/jenkins-job-builder-docker.git')
