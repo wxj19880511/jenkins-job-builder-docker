@@ -39,6 +39,7 @@ multibranchPipelineJob('TEST_FOLDER/5G18A-4.20012-QT') {
             remote('https://github.com/wxj19880511/jenkins-job-builder-docker.git')
             credentialsId('github')
             includes('*')
+            includes('v*')
         }
     }
     orphanedItemStrategy {
