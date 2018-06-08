@@ -1,4 +1,4 @@
-folder('DSL/test_folder_view') {
+folder('TEST_FOLDER') {
     
     description('Folder containing all QA jobs for project A')
 }
