@@ -52,6 +52,10 @@ multibranchPipelineJob('TEST_FOLDER/5G18A-4.20012-QT') {
             // pipeline jobs will have their script path set to `pipelines/customPipeline.groovy`
             scriptPath("workflows/jenkinsfile")
         }
+
+        def traits = it / sources / data / 'jenkins.branch.BranchSource' / source / traits
+        traits << 'jenkins.plugins.git.traits.BranchDiscoveryTrait' {}
+        traits << 'jenkins.plugins.git.traits.TagDiscoveryTrait' {}
     }
  
 }
