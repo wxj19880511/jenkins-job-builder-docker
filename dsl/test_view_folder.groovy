@@ -47,9 +47,10 @@ multibranchPipelineJob('TEST_FOLDER/5G18A-4.20012-QT') {
         }
     }
 
-    factory {
-        workflowMultiBranchProjectFactory {
-        scriptPath('workflows/jenkinsfile')
+    configure {
+        it / factory(class: 'org.jenkinsci.plugins.workflow.multibranch.WorkflowBranchProjectFactory') {
+            owner(class: 'org.jenkinsci.plugins.workflow.multibranch.WorkflowMultiBranchProject', reference: '../..')
+            scriptPath("workflows/jenkinsfile")
         }
     }
 }
