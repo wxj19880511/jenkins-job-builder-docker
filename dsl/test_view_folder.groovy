@@ -58,11 +58,21 @@ multibranchPipelineJob('TEST_FOLDER/5G18A-4.20012-QT') {
             'jenkins.plugins.git.traits.TagDiscoveryTrait' {}
         }
 
-        it / sources / data / 'jenkins.branch.BranchSource' / source / strategy / properties {
-              a(class: 'jenkins.branch.BranchProperty-array') {
+        strategy(class: 'jenkins.branch.NamedExceptionsBranchPropertyStrategy') {
+        defaultProperties(class: 'empty-list')
+        namedExceptions(class: 'java.util.Arrays\$ArrayList') {
+          a(class: 'jenkins.branch.NamedExceptionsBranchPropertyStrategy\$Named-array') {
+            'jenkins.branch.NamedExceptionsBranchPropertyStrategy_-Named'() {
+              props(class: 'java.util.Arrays\$ArrayList') {
+                a(class: 'jenkins.branch.BranchProperty-array') {
                   'jenkins.branch.NoTriggerBranchProperty'()
                 }
+              }
+              name('master')
+            }
+          }
         }
+      }
     }
  
 }
