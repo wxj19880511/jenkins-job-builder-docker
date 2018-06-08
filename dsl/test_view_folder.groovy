@@ -7,6 +7,21 @@ folder('TEST_FOLDER') {
             description('All unstable jobs for project A')
             filterBuildQueue()
             filterExecutors()
+
+            jobs {
+                name('5G18A-QT')
+                regex(/build-axe1.+/)
+            }
+
+            columns {
+                status()
+                weather()
+                name()
+                lastSuccess()
+                lastFailure()
+                lastDuration()
+                buildButton()
+            }
         }
     }
 }
