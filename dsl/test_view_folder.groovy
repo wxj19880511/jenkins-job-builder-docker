@@ -55,7 +55,7 @@ multibranchPipelineJob('TEST_FOLDER/5G18A-4.20012-QT') {
 
         it / sources / data / 'jenkins.branch.BranchSource' / source / traits << {
             'jenkins.plugins.git.traits.BranchDiscoveryTrait' {}
-            << 'jenkins.plugins.git.traits.TagDiscoveryTrait' {}
+            'jenkins.plugins.git.traits.TagDiscoveryTrait' {}
         }
 
         it / sources / data / 'jenkins.branch.BranchSource' / source / strategy / properties / a << {
