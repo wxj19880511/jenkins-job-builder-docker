@@ -11,7 +11,7 @@ q.waitFor()
 def out = q.text
 println(out)
 
-def latest_tag = out[0].split('/')[-1]
+def latest_tag = out.split('\\n')
 println(latest_tag)
 
 USING_TAG = System.getenv("USING_TAG") ?: latest_tag
