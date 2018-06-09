@@ -2,6 +2,9 @@
 
 // println "ls | xargs echo".execute().text
 
+println "pwd && ls -alt".execute().text
+
+
 def p = 'ls'.execute() | 'grep usr'.execute()
 p.waitFor()
 println p.text
