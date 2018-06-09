@@ -17,7 +17,6 @@ println(latest_tag)
 USING_TAG = System.getenv("USING_TAG") ?: latest_tag
 println("Using the tag: $USING_TAG")
 
-
 folder('TEST_FOLDER') {
     
     description('Folder containing all QA jobs for project A')
