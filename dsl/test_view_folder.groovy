@@ -1,7 +1,7 @@
 //git describe --tags `git rev-list --tags --max-count=1`
 
 
-def latest_tag = ("git describe --tags `git rev-list --tags --max-count=1`").execute
+def latest_tag = ("git describe --tags `git rev-list --tags --max-count=1`").execute()
 println("Latest tag is ${latest_tag}")
 
 folder('TEST_FOLDER') {
