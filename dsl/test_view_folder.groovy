@@ -6,7 +6,7 @@ def p = 'ls'.execute() | 'grep usr'.execute()
 p.waitFor()
 println p.text
 
-def q = "git ls-remote --tags https://github.com/wxj19880511/jenkins-job-builder-docker.git".execute() | "hean -n 10".execute()
+def q = "git ls-remote --tags https://github.com/wxj19880511/jenkins-job-builder-docker.git".execute() 
 q.waitFor()
 def out = q.text
 println(out)
@@ -59,6 +59,7 @@ multibranchPipelineJob('TEST_FOLDER/5G18A-4.20012-QT') {
             remote('https://github.com/wxj19880511/jenkins-job-builder-docker.git')
             credentialsId('github')
             includes('*')
+            exclude
         }
     }
     orphanedItemStrategy {
@@ -76,6 +77,9 @@ multibranchPipelineJob('TEST_FOLDER/5G18A-4.20012-QT') {
         it / sources / data / 'jenkins.branch.BranchSource' / source / traits << {
             'jenkins.plugins.git.traits.BranchDiscoveryTrait' {}
             'jenkins.plugins.git.traits.TagDiscoveryTrait' {}
+            'jenkins.scm.impl.trait.WildcardSCMHeadFilterTrait' {
+                includes("develop master $USING_TAG")
+            }
         }
 
         it / 'sources' / 'data' / 'jenkins.branch.BranchSource'/ strategy(class: 'jenkins.branch.DefaultBranchPropertyStrategy') {
