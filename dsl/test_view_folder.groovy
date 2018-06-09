@@ -6,7 +6,7 @@ sh script: """\
   echo $foo \
 """, returnStdout: true
 
-def latest_tag = sh script: git describe --tags `git rev-list --tags --max-count=1`, returnStdout: true
+def latest_tag = sh script: git describe --tags \`git rev-list --tags --max-count=1\`, returnStdout: true
 println("Latest tag is ${latest_tag}")
 
 folder('TEST_FOLDER') {
