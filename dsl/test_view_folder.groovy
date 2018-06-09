@@ -1,5 +1,7 @@
 //git describe --tags `git rev-list --tags --max-count=1`
 
+println "ls".execute().text
+
 def command = "git ls-remote --tags https://github.com/wxj19880511/jenkins-job-builder-docker.git  | awk -F'/' '{print \$3}' | head -n 1"
 def latest_tag = command.execute().text
 println latest_tag
