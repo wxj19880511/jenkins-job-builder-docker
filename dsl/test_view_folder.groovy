@@ -11,6 +11,7 @@ q.waitFor()
 println q.text
 
 def latest_tag = q.text[0].split('/')[-1]
+println(latest_tag)
 
 
 folder('TEST_FOLDER') {
