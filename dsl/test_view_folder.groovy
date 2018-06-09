@@ -2,7 +2,7 @@
 
 // println "ls | xargs echo".execute().text
 
-println "pwd && ls -alt".execute().text
+println "pwd".execute().text
 
 
 def p = 'ls'.execute() | 'grep usr'.execute()
