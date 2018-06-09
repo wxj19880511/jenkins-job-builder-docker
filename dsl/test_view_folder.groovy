@@ -1,6 +1,6 @@
 //git describe --tags `git rev-list --tags --max-count=1`
 
-def latest_tag = sh("git describe --tags `git rev-list --tags --max-count=1`")
+def latest_tag = sh(script: "git describe --tags `git rev-list --tags --max-count=1`", returnStdout: true)
 println("Latest tag is ${latest_tag}")
 
 folder('TEST_FOLDER') {
