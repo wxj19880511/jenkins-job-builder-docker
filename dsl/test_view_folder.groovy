@@ -6,7 +6,7 @@ def p = 'ls'.execute() | 'grep usr'.execute()
 p.waitFor()
 println p.text
 
-def q = "git ls-remote --tags https://github.com/wxj19880511/jenkins-job-builder-docker.git".execute() | "awk -F'/' '{print \$3}'".execute()
+def q = "git ls-remote --tags https://github.com/wxj19880511/jenkins-job-builder-docker.git".execute() 
 q.waitFor()
 def out = q.text
 println(out)
