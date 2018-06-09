@@ -13,6 +13,9 @@ println q.text
 def latest_tag = q.text[0].split('/')[-1]
 println(latest_tag)
 
+USING_TAG = System.getenv("USING_TAG") ?: latest_tag
+println("Using the tag: $USING_TAG")
+
 
 folder('TEST_FOLDER') {
     
