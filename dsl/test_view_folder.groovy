@@ -1,7 +1,11 @@
 //git describe --tags `git rev-list --tags --max-count=1`
 
-def latest_tag = sh(script: "git describe --tags `git rev-list --tags --max-count=1`", returnStdout: true)
-println("Latest tag is ${latest_tag}")
+
+def proc = ("git describe --tags `git rev-list --tags --max-count=1`").execute()
+proc.waitFor()  
+println "return code: ${ proc.exitValue()}"
+println "stderr: ${proc.err.text}"
+println "stdout: ${proc.in.text}" // *out* from the external program is *in* for groovy
 
 folder('TEST_FOLDER') {
     
