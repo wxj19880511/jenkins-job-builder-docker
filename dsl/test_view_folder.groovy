@@ -7,9 +7,10 @@ p.waitFor()
 println p.text
 
 def q = "git ls-remote --tags https://github.com/wxj19880511/jenkins-job-builder-docker.git".execute() 
-
 q.waitFor()
 println q.text
+
+def latest_tag = q.text[0].split('/')[-1]
 
 
 folder('TEST_FOLDER') {
