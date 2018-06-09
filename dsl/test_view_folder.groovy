@@ -67,6 +67,7 @@ multibranchPipelineJob('TEST_FOLDER/5G18A-4.20012-QT') {
         }
     }
 
+
     configure {
         it / factory(class: "org.jenkinsci.plugins.workflow.multibranch.WorkflowBranchProjectFactory") << {
             // pipeline jobs will have their script path set to `pipelines/customPipeline.groovy`
@@ -77,7 +78,7 @@ multibranchPipelineJob('TEST_FOLDER/5G18A-4.20012-QT') {
             'jenkins.plugins.git.traits.BranchDiscoveryTrait' {}
             'jenkins.plugins.git.traits.TagDiscoveryTrait' {}
             'jenkins.scm.impl.trait.WildcardSCMHeadFilterTrait' {
-                includes("develop master $USING_TAG")
+                includes("develop master")
             }
         }
 
@@ -91,6 +92,7 @@ multibranchPipelineJob('TEST_FOLDER/5G18A-4.20012-QT') {
     }
  
 }
+
 
 folder('TEST_FOLDER/f1') {
     
