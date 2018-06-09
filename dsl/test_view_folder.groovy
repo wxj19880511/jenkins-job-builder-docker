@@ -1,3 +1,9 @@
+//git describe --tags `git rev-list --tags --max-count=1`
+
+
+def latest_tag = ("git describe --tags `git rev-list --tags --max-count=1`").execute
+println("Latest tag is ${latest_tag}")
+
 folder('TEST_FOLDER') {
     
     description('Folder containing all QA jobs for project A')
