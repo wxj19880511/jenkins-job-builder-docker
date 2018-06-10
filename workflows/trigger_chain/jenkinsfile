@@ -1,0 +1,13 @@
+node () {
+    stage("<h1>Sync WFT Data ${env.BUILD_NUMBER}<h1>") {
+
+    }
+
+    stage("Get the latest untested package") {
+
+    }
+
+    stage("QT") {
+
+    }
+}
