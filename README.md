@@ -8,3 +8,16 @@ You need to configure a jenkins.ini configuration file for Jenkins Job Builder w
     docker run -it --rm --net=host -v jenkins_jobs.ini:/etc/jenkins_jobs/jenkins_jobs.ini -v PATH_TO_JOB_CONFIGS:/root/jenkins-job-builder diabol/jenkins-job-builder jenkins-jobs update my_job_config.yaml
 
 The Docker image is available on [Docker Hub](https://hub.docker.com/r/diabol/jenkins-job-builder/).
+
+
+
+#!/bin/bash
+
+
+pwd && ls
+
+git clone git@github.com:wxj19880511/jenkins-job-builder-docker.git CIHOME
+git clone git@github.com:wxj19880511/QTConfiguration.git
+pwd && ls
+
+find . -name "*.groovy"
