@@ -1,7 +1,8 @@
 //git describe --tags `git rev-list --tags --max-count=1`
 
-// println "ls | xargs echo".execute().text
+println "ls".execute().text
 
+println "pwd".execute().text
 
 def p = 'ls'.execute() | 'grep usr'.execute()
 p.waitFor()
