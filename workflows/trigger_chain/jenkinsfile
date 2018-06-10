@@ -1,5 +1,5 @@
 node () {
-    stage("<h1>Sync WFT Data ${env.BUILD_NUMBER}<h1>") {
+    stage("Sync WFT Data ${env.BUILD_NUMBER}") {
 
     }
 
@@ -11,3 +11,33 @@ node () {
 
     }
 }
+
+
+# Configuratoin - yaml 
+# Only use the master
+
+# Below is the same repository
+# WFT Trigger -> The same pipeline job using the parallel
+# QT Trigger -> 
+# QT 
+
+
+WFT-Schedule (v1.0.0) (WFT - v1.0.0, QTConfiguration - master, Shared library - fix version)
+    -> WFT-Sync (v1.0.0) -> (MBPJ, parallel for each stream)
+       - HGZ/5G18A/4.8
+       - HGZ/5G18A/4.90012
+       - HGZ/5G18A/4.32111
+       - ....
+
+QT-Schuduler (15mins) (v1.0.0)
+
+    -> WFT parallel (QTConfiguration - master, WFT+Shared library - v1.0.0)
+
+    -> QT-Trigger (QTConfiguration -master, QT Trigger+Shared library - v1.0.0)
+       # Only gather the 
+
+    -> QT ()
+
+
+I have a tag for WFT, QT Trigger, QT
+

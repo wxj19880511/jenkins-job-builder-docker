@@ -21,3 +21,27 @@ git clone git@github.com:wxj19880511/QTConfiguration.git
 pwd && ls
 
 find . -name "*.groovy"
+
+
+# Below is not visiable for the QT tester
+# Once the QT Configuraotn repo was added a 
+# new folder for a a new stream, change nothing
+# for below job for:
+#
+# WFT:
+# Always scan the configuration file directory 
+# and sync the WFT to data base.
+
+# QT Trigger:
+# Always scan the configuration directory and trigger 
+# And return the latest build list for each stream.
+
+# Sync data fro WFT to database 
+WFT Trigger (MCJ)  -> independent tag 
+WFT independent Repo (QT Configuration)
+
+# Return all
+QT Trigger Trigger (MCJ)  -> independent tag
+QT Trigger independent Repo (QT Configuration)
+
+

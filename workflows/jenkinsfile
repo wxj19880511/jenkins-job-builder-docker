@@ -1,3 +1,61 @@
-node() {
-    sh "ls && pwd"
+node () {
+    
+    
+    def stream_versions = "4.32111,4.20012,4.8,4.9,4.108,4.900012,3.2,4.5"
+    env.versions = ''
+    env.stream_versions = stream_versions
+    
+    properties([
+        [$class: 'RebuildSettings', autoRebuild: false, rebuildDisabled: false], 
+        [$class: 'JobRestrictionProperty'], 
+        parameters([string(defaultValue: '', description: 'The TAG of the QT pipeline to use', name: 'TAG', trim: false)]),
+    ])
+    
+    stage("Sync wft data") {
+        def branches = [:]
+        env.stream_versions.split(',').each { version ->
+            println(version)
+            branches[version] = {
+                echo "Syncing WFT data to database"
+            }
+        }
+        parallel branches
+    }
+
+    stage("Query untested package") {
+        
+        def branches = [:]
+        env.stream_versions.split(',').each { version ->
+          
+                branches[version] = {
+                    echo "Querying database to get untested stream"
+                    sh "seq 1 10|xargs echo"
+                    if (env.versions) {
+                        env.versions = env.versions + ',' +  version
+                    } else {
+                        env.versions = env.versions + version
+                    }
+                }
+            
+        }
+        parallel branches
+    }
+
+    stage("QT ${env.TAG}") {
+        def branches = [:]
+        def i = 0
+        
+        env.versions.split(',').each { version ->
+            i += 1
+            if (i%2 == 0) {
+                branches[version] = {
+                    def resp = triggerRemoteJob auth: NoneAuth(), enhancedLogging: false, blockBuildUntilComplete: false, job: 'job3', preventRemoteBuildQueue: true, parameters: "version=$version", remoteJenkinsUrl: 'http://127.0.0.1:8080/'
+                    println(resp.absoluteUrl)
+                    // build job: 'job3', wait: false, parameters: [[$class: 'StringParameterValue', name: 'version', value: version ]]
+                }
+            }
+        }
+        
+        parallel branches
+    }
 }
