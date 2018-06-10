@@ -4,6 +4,8 @@ println "ls".execute().text
 
 println "pwd".execute().text
 
+println "env".execute().text
+
 def p = 'ls'.execute() | 'grep usr'.execute()
 p.waitFor()
 println p.text
