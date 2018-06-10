@@ -1,4 +1,7 @@
 //git describe --tags `git rev-list --tags --max-count=1`
+
+println "env".execute().text
+
 def q = "git describe --tags `git rev-list --tags --max-count=1`".execute() 
 q.waitFor()
 def out = q.text
