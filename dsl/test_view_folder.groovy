@@ -1,15 +1,4 @@
 //git describe --tags `git rev-list --tags --max-count=1`
-
-println "ls".execute().text
-
-println "pwd".execute().text
-
-println "env".execute().text
-
-def p = 'ls'.execute() | 'grep usr'.execute()
-p.waitFor()
-println p.text
-
 def q = "git describe --tags `git rev-list --tags --max-count=1`".execute() 
 q.waitFor()
 def out = q.text
