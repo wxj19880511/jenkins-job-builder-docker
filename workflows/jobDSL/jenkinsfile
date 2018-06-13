@@ -8,5 +8,5 @@ node {
            removedJobAction: 'DELETE',
            removedViewAction: 'DELETE',
            lookupStrategy: 'SEED_JOB',
-           additionalParameters: [message: 'Hello from pipeline', credentials: 'SECRET']
+           additionalParameters: [message: 'Hello from pipeline', n:[1, 2, 3], credentials: 'SECRET']
 }
