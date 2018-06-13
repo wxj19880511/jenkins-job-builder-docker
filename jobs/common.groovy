@@ -1,1 +1,3 @@
-job("example-3") 
+println(message)
+
+job('my-job')
