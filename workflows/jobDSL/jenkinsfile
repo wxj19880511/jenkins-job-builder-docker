@@ -4,9 +4,10 @@ node {
 
     sh "pwd && ls"
 
-    jobDsl targets: 'jobs/common.groovy',
+    sh "env"
+
+    jobDsl targets: "{env.WORKSPACE}/jobs/common.groovy",
            removedJobAction: 'DELETE',
            removedViewAction: 'DELETE',
-           lookupStrategy: 'SEED_JOB',
            additionalParameters: [message: 'Hello from pipeline', n:[1, 2, 3], credentials: 'SECRET']
 }
