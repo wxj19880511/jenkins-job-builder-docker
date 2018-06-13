@@ -1,5 +1,7 @@
 node {
 
+    git branch: 'kevin', credentialsId: 'github', url: 'https://github.com/wxj19880511/jenkins-job-builder-docker.git'
+
 
     jobDsl targets: 'jobs/common.groovy',
            removedJobAction: 'DELETE',
