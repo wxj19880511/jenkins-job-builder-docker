@@ -6,7 +6,6 @@ node {
 
     jobDsl targets: 'jobs/common.groovy',
            removedJobAction: 'DELETE',
-           removedViewAction: 'DELETE',
-           lookupStrategy: 'SEED_JOB',
+           removedViewAction: 'DELETE',s
            additionalParameters: [message: 'Hello from pipeline', n:[1, 2, 3], credentials: 'SECRET']
 }
