@@ -1,7 +1,7 @@
 println(message)
 
 
-def myJob = freeStyleJob('SimpleJob')
+def myJob = freeStyleJob('DSL/SimpleJob')
 myJob.with {
     description 'A Simple Job'
 }
