@@ -1,5 +1,9 @@
 println(message)
 
-job('acme-tests') {
+folder('/DSL/fa') {
+    description('Folder containing all jobs for folder-a')
+}
+
+job('/DSL/fa/acme-tests') {
     description("just a test")
 }
