@@ -6,7 +6,7 @@ node {
 
     sh "env"
 
-    jobDsl targets: "${env.WORKSPACE}/**/jobs/common.groovy",
+    jobDsl targets: "*/**/jobs/common.groovy",
            removedJobAction: 'DELETE',
            removedViewAction: 'DELETE',
            additionalParameters: [message: 'Hello from pipeline', n:[1, 2, 3], credentials: 'SECRET']
